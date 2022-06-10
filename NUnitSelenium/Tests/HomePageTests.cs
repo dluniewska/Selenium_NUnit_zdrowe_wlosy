@@ -14,11 +14,19 @@ namespace NUnitSelenium.Tests
         string url = "https://zdrowe-wlosy.netlify.app/";
 
         //Browser driver
-        IWebDriver webDriver = new ChromeDriver();
+        IWebDriver webDriver;
+        String DownloadFolder = @"C://SeleniumFiles/";
+        ChromeOptions Options = new();
+
 
         [SetUp]
         public void Setup()
         {
+            //Directory.CreateDirectory(DownloadFolder);
+            //Options.AddUserProfilePreference("intl.accept_languages", "nl");
+            //Options.AddUserProfilePreference("disable-popup-blocking", "true");
+            //Options.AddUserProfilePreference("download.default_directory", DownloadFolder);
+            webDriver = new ChromeDriver();
             //Navigate to site
             webDriver.Navigate().GoToUrl(url);
         }
@@ -28,6 +36,15 @@ namespace NUnitSelenium.Tests
         {
             HomePage homePage = new HomePage(webDriver);
             Assert.That(homePage.IfHelloDesriptionDisplayed, Is.True);
+        }
+
+        [Test]
+        public void FileDownload()
+        {
+            HomePage homePage = new HomePage(webDriver);
+            homePage.ClickDownload();
+            Thread.Sleep(10000);
+            Assert.IsTrue(File.Exists(@"C:\Users\lunie\Downloads\zdrowewlosy.pdf"));
         }
 
         [TearDown]
