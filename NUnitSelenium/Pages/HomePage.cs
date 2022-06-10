@@ -25,6 +25,6 @@ namespace NUnitSelenium.Pages
             LoginElement.Click();
         }
 
-        public bool IfHelloDesriptionExists() => HelloDescription.Displayed;
+        public bool IfHelloDesriptionDisplayed() => HelloDescription.Displayed;
     }
 }

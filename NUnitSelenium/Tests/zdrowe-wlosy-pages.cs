@@ -5,7 +5,7 @@ namespace NUnitSelenium.Tests
 {
     public class Tests
     {
-        string url = "https://zdrowe-wlosy.netlify.app/";
+        //string url = "https://zdrowe-wlosy.netlify.app/";
 
         [SetUp]
         public void Setup()
@@ -20,10 +20,10 @@ namespace NUnitSelenium.Tests
         [Test]
         public void Login()
         {
-            IWebDriver webDriver = new ChromeDriver();
-            webDriver.Navigate().GoToUrl(url);
-            IWebElement Description = webDriver.FindElement(By.XPath("//div[contains(., 'Zdrowe W³osy jest to baza danych zawieraj¹ca kosmetyki do pielêgnacji w³osów. W opisie umieszczamy tylko sk³adniki. Jeœli jesteœ tu nowa œci¹gnij PDF z instrukcj¹ jak dbaæ o w³osy.')]"));
-            Assert.That(Description.Displayed, Is.True);
+            //IWebDriver webDriver = new ChromeDriver();
+            //webDriver.Navigate().GoToUrl(url);
+            //IWebElement Description = webDriver.FindElement(By.XPath("//div[contains(., 'Zdrowe W³osy jest to baza danych zawieraj¹ca kosmetyki do pielêgnacji w³osów. W opisie umieszczamy tylko sk³adniki. Jeœli jesteœ tu nowa œci¹gnij PDF z instrukcj¹ jak dbaæ o w³osy.')]"));
+            //Assert.That(Description.Displayed, Is.True);
 
             ////Open browser
             //IWebDriver webDriver = new ChromeDriver();
