@@ -17,16 +17,22 @@ namespace NUnitSelenium.Pages
             WebDriver = webDriver;
         }
 
-        public IWebElement Signinbtn => WebDriver.FindElement(By.XPath("//button[contains(., 'Sign In')]"));
-        //public IWebElement AddCosmeticsForm => WebDriver.FindElement(By.XPath("//span[contains(.,'ZAPISZ')]"));
+        public IWebElement SigninButton => WebDriver.FindElement(By.XPath("//button[contains(., 'Sign In')]"));
         public IWebElement TxtEmail => WebDriver.FindElement(By.Name("email"));
         public IWebElement TxtPassword => WebDriver.FindElement(By.Name("password"));
+        public IWebElement GoogleSignInButton => WebDriver.FindElement(By.XPath("//button[contains(., 'Google Sign In')]"));
+        public IWebElement RegisterButton => WebDriver.FindElement(By.XPath("//button[contains(., 'Nie posiadasz konta? Załóż je!')]"));
+
+        public void ClickRegister()
+        {
+            RegisterButton.Click();
+        }
 
         public void SignIn(string username, string password)
         {
             TxtEmail.SendKeys(username);
             TxtPassword.SendKeys(password);
-            Signinbtn.Submit();
+            SigninButton.Submit();
         }
 
         public bool IsLoggedSuccesfully() 
@@ -34,6 +40,17 @@ namespace NUnitSelenium.Pages
             var wait = new WebDriverWait(WebDriver, TimeSpan.FromSeconds(10));
             var AddCosmeticsForm = wait.Until(x => x.FindElement(By.XPath("//span[contains(.,'ZAPISZ')]")));
             return AddCosmeticsForm.Displayed;
-        } 
+        }
+
+        public bool IsWindowOpened(int expectedNumberOfWindows)
+        {
+            int numberOfWindows;
+            bool boolIsExpectedWindowsOpened;
+
+            numberOfWindows = WebDriver.WindowHandles.Count;
+            boolIsExpectedWindowsOpened = (numberOfWindows == expectedNumberOfWindows ? true : false);
+
+            return boolIsExpectedWindowsOpened;
+        }
     }
 }

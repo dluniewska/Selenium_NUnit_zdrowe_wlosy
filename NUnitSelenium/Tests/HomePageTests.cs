@@ -17,6 +17,7 @@ namespace NUnitSelenium.Tests
         IWebDriver webDriver;
         String DownloadFolder = @"C://SeleniumFiles/";
         ChromeOptions Options = new();
+        HomePage homePage;
 
 
         [SetUp]
@@ -29,22 +30,39 @@ namespace NUnitSelenium.Tests
             webDriver = new ChromeDriver();
             //Navigate to site
             webDriver.Navigate().GoToUrl(url);
+            homePage = new HomePage(webDriver);
+
         }
 
         [Test]
         public void DisplayHomePage()
         {
-            HomePage homePage = new HomePage(webDriver);
             Assert.That(homePage.IfHelloDesriptionDisplayed, Is.True);
         }
 
         [Test]
         public void FileDownload()
         {
-            HomePage homePage = new HomePage(webDriver);
             homePage.ClickDownload();
             Thread.Sleep(10000);
             Assert.IsTrue(File.Exists(@"C:\Users\lunie\Downloads\zdrowewlosy.pdf"));
+        }
+
+        [Test]
+        public void IsListOfCosmeticsDisplayed()
+        {
+            Assert.That(homePage.AwaitedCardWithTitleDisplayed("Garnier Maska"), Is.True);
+            Assert.That(homePage.IsCardWithTitleDisplayed("Petal Fresh"), Is.True);
+        }
+
+        [Test]
+        public void Search()
+        {
+            homePage.Search("Garnier Maska");
+            Thread.Sleep(10000);
+
+            Assert.That(homePage.IsCardWithTitleDisplayed("Garnier Maska"), Is.True);
+            Assert.That(homePage.IsCardWithTitleDisplayed("Petal Fresh"), Is.False);
         }
 
         [TearDown]
