@@ -9,26 +9,31 @@ using System.Threading.Tasks;
 
 namespace NUnitSelenium.Tests
 {
-    internal class RegisterPageTests
+    internal class LoginTests
     {
         string url = "https://zdrowe-wlosy.netlify.app/";
 
         //Browser driver
         IWebDriver webDriver = new ChromeDriver();
-        HomePage homepage;
-        SignInPage signInPage;
 
         [SetUp]
         public void Setup()
         {
             //Navigate to site
             webDriver.Navigate().GoToUrl(url);
-            homepage = new HomePage(webDriver);
-            signInPage = new SignInPage(webDriver);
-            homepage.ClickLogin();
-            signInPage.ClickRegister();
         }
 
+        [Test]
+        public void Login()
+        {
+            HomePage homepage = new HomePage(webDriver);
+            homepage.ClickLogin();
+
+            SignInPage signInPage = new SignInPage(webDriver);
+            signInPage.SignIn("admin@admin", "admin");
+
+            Assert.That(signInPage.IsLoggedSuccesfully, Is.True);
+        }
 
         [TearDown]
         public void TearDown() => webDriver.Quit();
