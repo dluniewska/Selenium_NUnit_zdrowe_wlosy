@@ -29,9 +29,15 @@ namespace NUnitSelenium.Tests
         }
 
         [Test]
-        public void IsLoginButtonExists()
+        public void IsEmailInputDisplayed()
         {
-            Assert.That(homepage.LoginElement.Displayed, Is.True);
+            Assert.That(signInPage.EmailInput.Displayed, Is.True);
+        }
+
+        [Test]
+        public void IsPasswordInputExists()
+        {
+            Assert.That(signInPage.PasswordInput.Displayed, Is.True);
         }
 
         [Test]
@@ -56,7 +62,7 @@ namespace NUnitSelenium.Tests
             Assert.That(signInPage.IsLoggedSuccesfully, Is.True);
         }
 
-        [TearDown]
-        public void TearDown() => webDriver.Quit();
+        //[TearDown]
+        //public void TearDown() => webDriver.Quit();
     }
 }

@@ -18,8 +18,8 @@ namespace NUnitSelenium.Pages
         }
 
         public IWebElement SigninButton => WebDriver.FindElement(By.XPath("//button[contains(., 'Sign In')]"));
-        public IWebElement TxtEmail => WebDriver.FindElement(By.Name("email"));
-        public IWebElement TxtPassword => WebDriver.FindElement(By.Name("password"));
+        public IWebElement EmailInput => WebDriver.FindElement(By.Name("email"));
+        public IWebElement PasswordInput => WebDriver.FindElement(By.Name("password"));
         public IWebElement GoogleSignInButton => WebDriver.FindElement(By.XPath("//button[contains(., 'Google Sign In')]"));
         public IWebElement RegisterButton => WebDriver.FindElement(By.XPath("//button[contains(., 'Nie posiadasz konta? Załóż je!')]"));
 
@@ -30,8 +30,8 @@ namespace NUnitSelenium.Pages
 
         public void SignIn(string username, string password)
         {
-            TxtEmail.SendKeys(username);
-            TxtPassword.SendKeys(password);
+            EmailInput.SendKeys(username);
+            PasswordInput.SendKeys(password);
             SigninButton.Submit();
         }
 

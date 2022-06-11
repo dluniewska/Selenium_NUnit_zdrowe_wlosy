@@ -35,6 +35,12 @@ namespace NUnitSelenium.Tests
         }
 
         [Test]
+        public void IsLoginButtonExists()
+        {
+            Assert.That(homePage.LoginElement.Displayed, Is.True);
+        }
+
+        [Test]
         public void DisplayHomePage()
         {
             Assert.That(homePage.IfHelloDesriptionDisplayed, Is.True);

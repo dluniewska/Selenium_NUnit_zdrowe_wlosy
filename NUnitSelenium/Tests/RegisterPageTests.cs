@@ -17,6 +17,7 @@ namespace NUnitSelenium.Tests
         IWebDriver webDriver = new ChromeDriver();
         HomePage homepage;
         SignInPage signInPage;
+        RegisterPage registerPage;
 
         [SetUp]
         public void Setup()
@@ -25,11 +26,48 @@ namespace NUnitSelenium.Tests
             webDriver.Navigate().GoToUrl(url);
             homepage = new HomePage(webDriver);
             signInPage = new SignInPage(webDriver);
+            registerPage = new RegisterPage(webDriver);
             homepage.ClickLogin();
             signInPage.ClickRegister();
         }
 
-        [TearDown]
-        public void TearDown() => webDriver.Quit();
+        [Test]
+        public void IsFirstNameFieldDisplayed()
+        {
+            Assert.That(registerPage.FirstNameInput.Displayed, Is.True);
+        }
+
+        [Test]
+        public void IsLastNameFieldDisplayed()
+        {
+            Assert.That(registerPage.LastNameInput.Displayed, Is.True);
+        }
+
+        [Test]
+        public void IsEmailNameFieldDisplayed()
+        {
+            Assert.That(registerPage.EmailInput.Displayed, Is.True);
+        }
+
+        [Test]
+        public void IsPasswordFieldDisplayed()
+        {
+            Assert.That(registerPage.PasswordInput.Displayed, Is.True);
+        }
+
+        [Test]
+        public void IsConfirmPasswordFieldDisplayed()
+        {
+            Assert.That(registerPage.ConfirmPasswordInput.Displayed, Is.True);
+        }
+
+        [Test]
+        public void IsLoginButtonDisplayed()
+        {
+            Assert.That(registerPage.LoginButton.Displayed, Is.True);
+        }
+
+        //[TearDown]
+        //public void TearDown() => webDriver.Quit();
     }
 }
