@@ -1,8 +1,8 @@
-# Testy Automatyczne portal
+# Testy Automatyczne portalu Zdrowe Włosy
 
 ## Spis treści 
-* [Wprowadzenie](#wprowadzenie)
 * [Linki](#linki)
+* [Wprowadzenie](#wprowadzenie)
 * [Architektura systemu i oprogramowania](#architektura-systemu-i-oprogramowania)
 * [Ilustracje](#ilustracje)
 
@@ -22,8 +22,9 @@ Przeprowadzone zostały dla niego testy automatyczne z wykorzystaniem frameworka
 
 **Stack technologiczny:**
 
-* C#
+* C# .NET.Core
 * Selenium Framework
+* NUnit
 
 **Architektura uruchomieniowa:**
 * Visual Studio
@@ -31,8 +32,7 @@ Przeprowadzone zostały dla niego testy automatyczne z wykorzystaniem frameworka
 ## Ilustracje
 
 ### Lista Testów
-![image](https://user-images.githubusercontent.com/72083113/173242048-257aa4c1-ee22-4e3e-94b8-1a3452b77617.png)
-
+![image](https://user-images.githubusercontent.com/72083113/173250597-7c6086ed-50da-4acd-bb94-f0f951d6122f.png)
 
 ### Strona Główna
 ![image](https://user-images.githubusercontent.com/35393983/152700417-07da38cf-3658-488a-a8a1-3fce29efcbd9.png)
