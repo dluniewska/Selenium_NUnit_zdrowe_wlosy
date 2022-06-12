@@ -22,8 +22,9 @@ Przeprowadzone zostały dla niego testy automatyczne z wykorzystaniem frameworka
 
 **Stack technologiczny:**
 
-* C#
+* C# .NET.Core
 * Selenium Framework
+* NUnit
 
 **Architektura uruchomieniowa:**
 * Visual Studio
